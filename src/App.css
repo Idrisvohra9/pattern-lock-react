@@ -2,19 +2,72 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --primary-clr: #0f1b33;
+  --secondary-clr: aliceblue;
+  --tertiary-clr: #69b4c3;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button {
+  border: 2px solid transparent !important;
+  border-radius: 8px !important;
+  transition: .3s ease !important;
+}
+
+
+
+button:hover {
+  border-color: rgba(69, 49, 157, 0.4);
+  box-shadow: 0 0 0 6px rgba(69, 49, 157, 0.6);
+}
+
+button:focus {
+  border-color: rgba(69, 49, 157, 0.7);
+  box-shadow: 0 0 0 8px rgba(69, 49, 157, 0.9);
+}
+
+.input {
+  border: none;
+  padding: .3rem;
+  padding-inline-start: 2rem;
+  overflow-x: hidden;
+  width: 20%;
+  border-radius: 1rem;
+  background: #e8e8e8;
+  margin-bottom: 20px;
+  transition: 0.3s;
+  letter-spacing: 2.3rem;
+  color: purple;
+  font-size: 1rem;
+}
+
+.input::placeholder {
+  letter-spacing: 0 !important;
+  /* padding-inline-start: 0 !important; */
+  /* text-align: center; */
+}
+
+.input:focus {
+  outline-color: #e8e8e8;
+  background: #e8e8e8;
+  box-shadow: inset 20px 20px 60px #c5c5c5,
+    inset -20px -20px 60px #ffffff;
+  transition: 0.3s;
+}
+
+.btns-container {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.btns-container button:nth-child(10) {
+  /* justify-self: space-around; */
+  grid-column-start: 2;
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: var(--primary-clr);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,13 +79,4 @@
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
