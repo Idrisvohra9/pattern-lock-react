@@ -8,7 +8,7 @@ function App() {
   const [pattern, setPattern] = useState(originalPattern);
   const [buttonNumbers, setButtonNumbers] = useState(originalButtonNos);
   const [format, setFormat] = useState("P");
-  console.log(pattern)
+  console.log(pattern);
   // Pattern -> String env variable, Format -> Array of format characters, onSuccess -> Callback function, onFailure -> Callback function, tries -> Number of tries
   // "P" => Original, "Q" => shuffles odd with even, "R" => Reverse, "S" => first even then odd
   // Q => 1, 0, 3, 2, 5, 4, 7, 6, 9, 8
@@ -111,41 +111,39 @@ function App() {
   }
   function checkPattern(e) {
     const currentVal = e.currentTarget.innerHTML;
-    console.log(enteredPattern.length === pattern.length);
+    // console.log(enteredPattern.length === pattern.length);
     setEnteredPattern((prevValue) => prevValue + currentVal);
   }
   return (
-    <div className="App">
-      <header className="App-header">
-        <input
-          type="password"
-          name="text"
-          className="input"
-          placeholder="Enter Pattern.."
-          readOnly
-          style={{ width: (pattern.length * inputWidthinPercent) + "%" }}
-          value={enteredPattern}
-        />
-        <div className="btns-container">
-          {
-            buttonNumbers.map((num, i) => <Button value={num} key={i} checkPattern={checkPattern} />)
-          }
-        </div>
-        <button
-          className="btn btn-danger mt-3"
-          type="reset"
-          onClick={() => setEnteredPattern("")}
-        >
-          ↩ Clear
-        </button>
-        <button
-          className="btn btn-primary mt-3"
-          type="reset"
-          onClick={shuffleFormat}
-        >
-          🔀 Format
-        </button>
-      </header>
+    <div className="enigma-pattern-container">
+      <input
+        type="password"
+        name="text"
+        className="input"
+        placeholder="Enter Pattern.."
+        readOnly
+        style={{ width: (pattern.length * inputWidthinPercent) + "%" }}
+        value={enteredPattern}
+      />
+      <div className="btns-container">
+        {
+          buttonNumbers.map((num, i) => <Button value={num} key={i} checkPattern={checkPattern} />)
+        }
+      </div>
+      <button
+        className="btn btn-danger mt-3"
+        type="reset"
+        onClick={() => setEnteredPattern("")}
+      >
+        ↩ Clear
+      </button>
+      <button
+        className="btn btn-primary mt-3"
+        type="button"
+        onClick={shuffleFormat}
+      >
+        🔀 Format
+      </button>
     </div>
   );
 }
