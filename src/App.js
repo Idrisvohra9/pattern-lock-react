@@ -3,7 +3,7 @@ import "./App.css";
 import Button from "./components/Button";
 
 function App() {
-  const originalPattern = "1132";
+  const originalPattern = "1040";
   const originalButtonNos = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   const [pattern, setPattern] = useState(originalPattern);
   const [buttonNumbers, setButtonNumbers] = useState(originalButtonNos);
@@ -119,7 +119,7 @@ function App() {
       <input
         type="password"
         name="text"
-        className="input"
+        className="enigma-input"
         placeholder="Enter Pattern.."
         readOnly
         style={{ width: (pattern.length * inputWidthinPercent) + "%" }}
